@@ -1,0 +1,41 @@
+{
+  "name": "udp-abstract-dht",
+  "version": "0.0.1",
+  "description": "A Kademlia-based DHT implementation with abstract communication interfaces.",
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "coverage": "istanbul cover test.js",
+    "test": "node test.js | node node_modules/faucet/bin/cmd",
+    "docs": "node node_modules/jsdoc/jsdoc.js -c jsdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walasek/node-abstract-dht.git"
+  },
+  "keywords": [
+    "nodejs",
+    "dht",
+    "kademlia"
+  ],
+  "author": "Karol Walasek <coreconviction@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/walasek/node-abstract-dht/issues"
+  },
+  "homepage": "https://github.com/walasek/node-abstract-dht#readme",
+  "devDependencies": {
+    "docdash": "^1.1.0",
+    "faucet": "0.0.1",
+    "glob": "^7.1.4",
+    "istanbul": "^1.1.0-alpha.1",
+    "jsdoc": "^3.6.1",
+    "optimist": "^0.6.1",
+    "zora": "^2.0.1"
+  },
+  "dependencies": {
+    "debug": "^4.1.1"
+  }
+}
