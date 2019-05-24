@@ -1,4 +1,4 @@
-# [node-abstract-dht](https://github.com/walasek/node-abstract-dht) [![Package Version](https://img.shields.io/npm/v/udp-messaging.svg?style=flat-square)](https://www.npmjs.com/walasek/node-abstract-dht) ![License](https://img.shields.io/npm/l/udp-messaging.svg?style=flat-square) [![Dependencies](https://david-dm.org/walasek/node-abstract-dht.svg)](https://david-dm.org/walasek/node-abstract-dht.svg)  [![codecov](https://codecov.io/gh/walasek/node-abstract-dht/branch/master/graph/badge.svg)](https://codecov.io/gh/walasek/node-abstract-dht)
+# [node-abstract-dht](https://github.com/walasek/node-abstract-dht) [![Package Version](https://img.shields.io/npm/v/abstract-dht.svg?style=flat-square)](https://www.npmjs.com/walasek/node-abstract-dht) ![License](https://img.shields.io/npm/l/abstract-dht.svg?style=flat-square) [![Dependencies](https://david-dm.org/walasek/node-abstract-dht.svg)](https://david-dm.org/walasek/node-abstract-dht.svg)  [![codecov](https://codecov.io/gh/walasek/node-abstract-dht/branch/master/graph/badge.svg)](https://codecov.io/gh/walasek/node-abstract-dht)
 
 An implementation of Kademlia-based DHT protocol with abstract networking.
 
@@ -6,20 +6,20 @@ An implementation of Kademlia-based DHT protocol with abstract networking.
 
 ## Goal
 
-...
+# WORK IN PROGRESS
 
 ## Installation
 
 Node `>=8.9.0` is required.
 
 ```bash
-npm install --save udp-messaging
+npm install --save abstract-dht
 ```
 
 To perform tests use:
 
 ```bash
-cd node_modules/udp-messaging
+cd node_modules/abstract-dht
 npm i
 npm t
 ```
@@ -35,7 +35,7 @@ npm run docs
 Extra debugging information is printed using the `debug` module:
 
 ```bash
-DEBUG=udp-messaging:* npm t
+DEBUG=abstract-dht:* npm t
 ```
 
 The documentation will be put in the new `docs` directory.
