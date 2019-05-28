@@ -35,7 +35,7 @@ module.exports = async (test) => {
 			await new Promise(res => setTimeout(res, mystate*100));
 			res(mystate);
 		});
-		await new Promise(res => setTimeout(res, 5000));
+		await new Promise(res => setTimeout(res, 1200));
 		t.equal(state, 3);
 		t.equal(result, 1);
 	});

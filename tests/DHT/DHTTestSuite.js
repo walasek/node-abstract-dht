@@ -42,7 +42,7 @@ class DHTTestSuite {
 						this.peers[v] = new Peer(v, 1000, this.ids[v]);
 					}
 					// Add to k-buckets
-					this.nodes[k].buckets.put(this.nodes[k].options.metric.distance(this.ids[k], this.ids[v]), this.peers[v]);
+					this.nodes[k].touchPeer(this.peers[v]);
 				});
 			}
 		});
