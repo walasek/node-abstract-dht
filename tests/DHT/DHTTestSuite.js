@@ -23,6 +23,7 @@ class DHTTestSuite {
 					}
 					throw new Error(`Node ${peer.ip} does not exist`);
 				}),
+				id: desc[k].id,
 			});
 			this.ids[k] = this.nodes[k].options.id;
 			this.peers[k] = new Peer(k, 1000, this.ids[k]);
@@ -48,7 +49,7 @@ class DHTTestSuite {
 		});
 	}
 	buildEventHandle(name, k){
-		if(this.desc.events[k] && this.desc.events[k][name])
+		if(this.desc.events && this.desc.events[k] && this.desc.events[k][name])
 			return async (...args) => {
 				return this.desc.events[k][name](...args);
 			}
