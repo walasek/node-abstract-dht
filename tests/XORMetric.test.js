@@ -1,13 +1,6 @@
 const XORMetric = require('../lib/XORMetric');
 
 module.exports = (test) => {
-	test('XORMetric allows hashing things', (t) => {
-		const buf = Buffer.from('Some data');
-		const h = XORMetric.hash(buf);
-
-		t.equal(h.length, 160 / 8); // 20 bytes
-		t.equal(XORMetric.size(), 20);
-	});
 	test('XORMetric distance is a number, and it\'s a XOR of arguments', (t) => {
 		const a = Buffer.alloc(20, 0);
 		const b = Buffer.alloc(20, 0);

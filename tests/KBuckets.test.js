@@ -81,11 +81,4 @@ module.exports = (test) => {
 			t.deepEqual(closest, [64, 4, 3, 2, 1]);
 		});
 	});
-
-	test('In case of ridiculous distances the library throws', (t) => {
-		const b = new KBuckets(3, 32);
-		t.throws(() => {
-			b.put(Math.pow(2, 64));
-		});
-	});
 };
