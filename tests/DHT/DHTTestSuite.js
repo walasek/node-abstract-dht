@@ -37,6 +37,14 @@ class DHTTestSuite {
 						this.nodes[k]._mem = {};
 					this.nodes[k]._mem[key] = value;
 				}),
+				sendGetRequest: this.buildEventHandle('sendGetRequest', k) || ((peer, key, id) => {
+					if(this.nodes[peer.ip]){
+						let result;
+						this.nodes[peer.ip].handleGetRequest(peer, key, id, (r) => result = r);
+						return result;
+					}
+					throw new Error(`Node ${peer.ip} does not exist`);
+				}),
 				getValue: this.buildEventHandle('getValue', k) || ((key, id) => {
 					return this.nodes[k]._mem[key];
 				}),
