@@ -18,10 +18,8 @@ module.exports = async (test) => {
 			events: {
 				a: {
 					sendNodeLookup(peer, id){
-						let res;
-						suite.nodes[peer.ip].handleNodeLookup(suite.peers.a, id, (r) => res = r);
 						a_jumps++;
-						return res;
+						return suite.nodes[peer.ip].handleNodeLookup(suite.peers.a, id);
 					}
 				},
 			}

@@ -18,17 +18,13 @@ class DHTTestSuite {
 				...dht_opts,
 				sendNodeLookup: this.buildEventHandle('sendNodeLookup', k) || ((peer, id) => {
 					if(this.nodes[peer.ip]){
-						let result;
-						this.nodes[peer.ip].handleNodeLookup(peer, id, (r) => result = r);
-						return result;
+						return this.nodes[peer.ip].handleNodeLookup(peer, id);
 					}
 					throw new Error(`Node ${peer.ip} does not exist`);
 				}),
 				sendStoreRequest: this.buildEventHandle('sendStoreRequest', k) || ((peer, key, value, id) => {
 					if(this.nodes[peer.ip]){
-						let result;
-						this.nodes[peer.ip].handleStoreRequest(peer, key, value, id, (r) => result = r);
-						return result;
+						return this.nodes[peer.ip].handleStoreRequest(peer, key, value, id);
 					}
 					throw new Error(`Node ${peer.ip} does not exist`);
 				}),
@@ -39,9 +35,7 @@ class DHTTestSuite {
 				}),
 				sendGetRequest: this.buildEventHandle('sendGetRequest', k) || ((peer, key, id) => {
 					if(this.nodes[peer.ip]){
-						let result;
-						this.nodes[peer.ip].handleGetRequest(peer, key, id, (r) => result = r);
-						return result;
+						return this.nodes[peer.ip].handleGetRequest(peer, key, id);
 					}
 					throw new Error(`Node ${peer.ip} does not exist`);
 				}),

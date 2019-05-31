@@ -15,9 +15,8 @@ module.exports = async (test) => {
 			i: {knows: ['x']},
 			events: {
 				a: {
-					sendNodeLookup(peer, id){
-						let res;
-						suite.nodes[peer.ip].handleNodeLookup(suite.peers.a, id, (r) => res = r);
+					async sendNodeLookup(peer, id){
+						const res = await suite.nodes[peer.ip].handleNodeLookup(suite.peers.a, id);
 						suite.nodes.a.touchPeer(suite.peers[peer.ip]);
 						a_jumps++;
 						return res;

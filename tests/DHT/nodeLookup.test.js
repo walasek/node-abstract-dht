@@ -21,9 +21,7 @@ module.exports = async (test) => {
 				// a should ask b once
 				a_lookup_count++;
 				t.ok(Buffer.compare(id_b, peer.id) == 0);
-				let result = null;
-				b.handleNodeLookup(p_a, id, (p) => result=p);
-				return result;
+				return b.handleNodeLookup(p_a, id);
 			}
 		});
 		const b = new DHT({

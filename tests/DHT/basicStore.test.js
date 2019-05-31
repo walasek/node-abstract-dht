@@ -8,11 +8,6 @@ module.exports = async (test) => {
 			b: {knows: ['a']},
 			events: {
 				a: {
-					sendStoreRequest(peer, key, value, id){
-						suite.nodes[peer.ip].handleStoreRequest(suite.peers.a, key, value, id, () => {
-							// ??
-						});
-					},
 					storeValue(key, value, id){
 						a_stores++;
 					}
