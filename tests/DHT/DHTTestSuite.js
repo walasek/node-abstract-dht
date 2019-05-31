@@ -18,13 +18,13 @@ class DHTTestSuite {
 				...dht_opts,
 				sendNodeLookup: this.buildEventHandle('sendNodeLookup', k) || ((peer, id) => {
 					if(this.nodes[peer.ip]){
-						return this.nodes[peer.ip].handleNodeLookup(peer, id);
+						return this.nodes[peer.ip].handleNodeLookup(this.peers[k], id);
 					}
 					throw new Error(`Node ${peer.ip} does not exist`);
 				}),
 				sendStoreRequest: this.buildEventHandle('sendStoreRequest', k) || ((peer, key, value, id) => {
 					if(this.nodes[peer.ip]){
-						return this.nodes[peer.ip].handleStoreRequest(peer, key, value, id);
+						return this.nodes[peer.ip].handleStoreRequest(this.peers[k], key, value, id);
 					}
 					throw new Error(`Node ${peer.ip} does not exist`);
 				}),
@@ -35,12 +35,12 @@ class DHTTestSuite {
 				}),
 				sendGetRequest: this.buildEventHandle('sendGetRequest', k) || ((peer, key, id) => {
 					if(this.nodes[peer.ip]){
-						return this.nodes[peer.ip].handleGetRequest(peer, key, id);
+						return this.nodes[peer.ip].handleGetRequest(this.peers[k], key, id);
 					}
 					throw new Error(`Node ${peer.ip} does not exist`);
 				}),
 				getValue: this.buildEventHandle('getValue', k) || ((key, id) => {
-					return this.nodes[k]._mem[key];
+					return (this.nodes[k]._mem || {})[key];
 				}),
 				id: desc[k].id,
 			});
@@ -93,6 +93,10 @@ class DHTTestSuite {
 			watchdog++;
 		}
 		throw new Error(`RNG fault, please retry`);
+	}
+	async joinNode(k, bootstrap_k){
+		this.nodes[k].touchPeer(this.peers[bootstrap_k]);
+		return this.nodes[k].nodeLookup(this.ids[k], this.nodes[k].options.k, false);
 	}
 	close(){
 		Object.values(this.nodes).forEach(n => n.close());

@@ -12,7 +12,7 @@ module.exports = async (test) => {
 		const get_fn = (peer_id) => {
 			return (key) => {
 				get_ops[peer_id] = (get_ops[peer_id] || 0) + 1;
-				return 1;
+				//return 1;
 			}
 		};
 		const suite = new DHTTestSuite({
@@ -47,7 +47,7 @@ module.exports = async (test) => {
 		t.equal(store_ops.b || 0, 0);
 		t.equal(store_ops.c || 0, 1);
 		t.equal(store_ops.d || 0, 1);
-		t.equal(get_ops.a || 0, 0);
+		t.equal(get_ops.a || 0, 1); // Always checks local?
 		t.equal(get_ops.b || 0, 0);
 		t.equal(get_ops.c || 0, 1);
 		t.equal(get_ops.d || 0, 1);
