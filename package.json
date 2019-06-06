@@ -1,6 +1,6 @@
 {
   "name": "udp-abstract-dht",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Kademlia-based DHT implementation with abstract communication interfaces.",
   "engines": {
     "node": ">=8.9.0"
